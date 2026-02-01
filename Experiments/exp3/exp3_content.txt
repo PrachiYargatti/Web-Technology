@@ -1,0 +1,76 @@
+  1) What is an arrow function?
+
+  - Arrow functions are a concise ES6 syntax for writing functions:
+    const add = (a, b) => a + b;
+  - They have an implicit return when the function body is a single expression
+    (no braces). With braces you must use `return` explicitly.
+  - Arrow functions do NOT have their own `this` binding (they use lexical `this`).
+  - They cannot be used as constructors (cannot be called with `new`).
+  - They do not have their own `arguments` object.
+
+  2) Differences between arrow functions and regular (simple) functions.
+
+  - Syntax: `() => {}` vs `function () {}`.
+  - `this` binding: regular functions have dynamic `this` (depends how called);
+    arrow functions capture `this` from the surrounding scope (lexical).
+  - `arguments`: regular functions have `arguments`; arrow functions do not.
+  - `new` / constructor: regular functions can be constructors; arrow functions cannot.
+  - `prototype`: regular functions have a `prototype` property; arrow functions do not.
+  - Use cases: arrow functions are good for short callbacks and when you want
+    to preserve the outer `this` (e.g., in methods that use inner callbacks).
+
+  3) What is the `this` keyword?
+
+  - `this` is a reference to the execution context object for the current call.
+  - How `this` is determined:
+    - Called as a method (obj.method()): `this` is `obj`.
+    - Called as a function (fn()): in non-strict mode `this` is global object,
+      in strict mode `this` is `undefined`.
+    - Called with `new`: `this` is the new instance being constructed.
+    - Called with `call`/`apply`/`bind`: `this` is explicitly set.
+  - `this` lets methods access and mutate the object they belong to.
+
+  4) Why we use `this`?
+
+  - To write object-oriented code where methods operate on the instance's
+    properties without hard-coding the object name.
+  - In constructors, `this` is used to set up instance fields:
+    function Person(name) { this.name = name; }
+
+  5) Why arrow functions do not have their own `this`?
+  
+  - Arrow functions were designed to be lightweight and to inherit the
+    surrounding lexical `this`. This is convenient for callbacks inside
+    methods where you want to access the outer `this` without `.bind(this)`.
+  - Since arrow functions don't create their own `this`, keywords like
+    `new`, `arguments`, and `prototype` semantics are not applicable.
+
+  Examples:
+  1) Regular function `this` depends on call-site:
+  const obj = {
+    value: 10,
+    regular: function() { console.log(this.value); }
+  };
+  obj.regular();   10 (this -> obj)
+
+  2) Arrow function captures outer `this`:
+  function Timer() {
+    this.seconds = 0;
+    setInterval(() => {   arrow uses lexical `this`
+      this.seconds++;
+    }, 1000);
+  }
+
+  3) Arrow can't be a constructor:
+  const A = () => {};
+  new A();   TypeError: A is not a constructor
+
+  4) `arguments` behavior:
+  function foo() { console.log(arguments); }
+  const bar = () => { console.log(arguments); }   `arguments` comes from outer scope
+
+  Summary:
+  - Use arrow functions for short functions and when you want lexical `this`.
+  - Use regular functions when you need dynamic `this`, `arguments`, or constructors.
+
+
