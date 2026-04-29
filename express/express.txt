@@ -1,0 +1,184 @@
+1) what is Express js?
+express is a minimal and flexible web application framework for node js 
+that simplifies the development of web servers and API's
+
+2) features
+routing, middleware support, request and response handling, raise API creation, template rendering
+
+npm => node package manager 
+
+procedure => node -v, npm init, npm install express, node index.js
+
+// 1) diff between package.json and package-lock.json
+// 2) diff between devDependencies and dependencies in package.json
+// 3) http request methods: get, post, put, delete, patch
+// patch: update a resource partially
+// put: update a resource completely
+
+routing in express js => 
+routing refers to determining how an application respond to the client request for 
+specific url and http method
+
+url path http method handler function
+
+middleware => it is a function that executes during the life cycle of request 
+before sending the final response then have access to request, response and next parameter
+
+middleware flow =>
+client => middleware => route handler => response
+
+syn=>
+function funName(req, res, next) => {
+    console.log(req.url)
+}
+app.use(funName) //calling
+app.get()
+
+## 1) `package.json` vs `package-lock.json`
+
+**Think of this as: Intent vs Reality**
+
+### `package.json` → *Your vision*
+
+* Declares what your project *wants*
+* Uses flexible versions
+  Example: `"express": "^4.18.0"` → allows updates
+
+👉 It’s like saying: *“I want a car like this.”*
+
+---
+
+### `package-lock.json` → *Exact snapshot*
+
+* Locks **exact versions + dependency tree**
+* Ensures **same install everywhere**
+* Auto-generated (never manually edit)
+
+👉 It’s like: *“This exact car with these exact parts.”*
+
+---
+
+### Innovation mindset shift:
+
+Without `package-lock.json`, your app is **non-deterministic** → builds can break randomly.
+
+With it, you unlock:
+
+* Reproducible builds
+* Stable deployments
+* Debugging consistency across teams
+
+---
+
+## 2) `dependencies` vs `devDependencies`
+
+**Think of this as: Runtime vs Build-time**
+
+### `dependencies` → *Essential for the app to run*
+
+* Needed in production
+* Example:
+
+  * `express`
+  * `react`
+
+👉 If removed → app crashes
+
+---
+
+### `devDependencies` → *Only for development*
+
+* Not needed in production
+* Example:
+
+  * `nodemon`
+  * `eslint`
+  * `jest`
+
+👉 If removed → app still runs, but dev experience suffers
+
+---
+
+### Strategic lens:
+
+Smart separation enables:
+
+* Smaller production builds
+* Faster deployments
+* Better security (fewer attack surfaces)
+
+---
+
+## 3) HTTP Methods (beyond basics)
+
+Think in terms of **intent + system behavior**
+
+---
+
+### `GET` → *Read*
+
+* Fetch data
+* No side effects
+* Idempotent (safe to repeat)
+
+👉 Example: Load tweets
+
+---
+
+### `POST` → *Create*
+
+* Adds new data
+* Not idempotent
+
+👉 Example: Create tweet
+
+---
+
+### `PUT` → *Replace*
+
+* Replaces entire resource
+* Idempotent
+
+👉 Example: Replace full user profile
+
+---
+
+### `PATCH` → *Modify*
+
+* Updates partially
+* More efficient than PUT
+
+👉 Example: Update only email
+
+---
+
+### `DELETE` → *Remove*
+
+* Deletes resource
+* Idempotent
+
+👉 Example: Delete tweet
+
+---
+
+## Reimagining the system (next-level thinking)
+
+Most apps misuse HTTP like this:
+
+* Everything → `POST`
+
+That’s **lazy architecture**.
+
+Instead, design APIs like a **language**:
+
+* `GET` = observe
+* `POST` = create event
+* `PATCH` = evolve state
+* `PUT` = enforce truth
+* `DELETE` = erase existence
+
+👉 This transforms your backend into a **predictable system**, not just endpoints.
+
+---
+
+If you want, I can show how to redesign your Twitter clone APIs using these principles so it feels like a real production system.

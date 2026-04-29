@@ -1,0 +1,10 @@
+activity:
+what is middleware?
+where we use middleware function in company level?
+what is types of middleware?
+write 2 or 3 ex of middleware.
+
+write 2 or 4 ex of query parameter
+what is query parameter
+why we use query parameter in real life 
+
