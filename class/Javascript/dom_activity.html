@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery & DOM Activity</title>
+    <!-- Include jQuery from CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #121212;
+            color: #e0e0e0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 50px;
+        }
+        h1 {
+            color: #bb86fc;
+            margin-bottom: 20px;
+        }
+        .container {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+            max-width: 1000px;
+        }
+        .image-card {
+            background-color: #1e1e1e;
+            padding: 10px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+            transition: transform 0.3s, opacity 0.5s;
+            cursor: pointer;
+            text-align: center;
+        }
+        .image-card:hover {
+            transform: scale(1.05);
+            border: 2px solid #03dac6;
+        }
+        .image-card img {
+            width: 250px;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        .info {
+            margin-top: 20px;
+            padding: 20px;
+            background: #2c2c2c;
+            border-left: 5px solid #bb86fc;
+            max-width: 800px;
+        }
+        .btn-reset {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #bb86fc;
+            color: #000;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .btn-reset:hover {
+            background-color: #9965f4;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>jQuery DOM Activity</h1>
+    <p>Click on any image to remove it from the page. Refresh to bring them back!</p>
+
+    <div class="container">
+        <!-- Images will be removed on click using jQuery -->
+        <div class="image-card">
+            <img src="nature_sample_1.png" alt="Nature 1">
+            <p>Mountain Lake</p>
+        </div>
+        <div class="image-card">
+            <img src="nature_sample_2.png" alt="Nature 2">
+            <p>Green Forest</p>
+        </div>
+        <div class="image-card">
+            <img src="https://images.unsplash.com/photo-1501854140801-50d01698950b?auto=format&fit=crop&w=400" alt="Nature 3">
+            <p>River View</p>
+        </div>
+        <div class="image-card">
+            <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=400" alt="Nature 4">
+            <p>Sunlight Trees</p>
+        </div>
+    </div>
+
+    <div class="info">
+        <h3>What is jQuery?</h3>
+        <p><strong>jQuery</strong> is a fast, small, and feature-rich JavaScript library. It makes things like HTML document traversal and manipulation, event handling, animation, and Ajax much simpler with an easy-to-use API that works across a multitude of browsers.</p>
+        <p>The <code>$()</code> function is the heart of jQuery. It is used to find (select) elements from the webpage and apply functions to them.</p>
+    </div>
+
+    <button class="btn-reset" onclick="location.reload()">Refresh Page</button>
+
+    <script>
+        $(document).ready(function(){
+            // jQuery selector and click event
+            $('.image-card').click(function(){
+                // $(this) refers to the element that was clicked
+                $(this).fadeOut(500, function(){
+                    $(this).remove(); // Removes the element from DOM after fade animation
+                });
+            });
+
+            // Example of using jQuery to change styles
+            $('h1').css('text-shadow', '2px 2px 5px rgba(187, 134, 252, 0.5)');
+        });
+    </script>
+</body>
+</html>

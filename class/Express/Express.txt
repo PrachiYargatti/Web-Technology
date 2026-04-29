@@ -1,0 +1,117 @@
+express is a framework ,  minimal and flexible web applicaton of node.js that simplifies  the development of web servers and APIs
+
+Features:
+        routing
+        middleware support
+        request and response handling 
+        rest API creation 
+        template rendering 
+
+npm : node package manager
+
+ 
+
+
+
+Routing in express js:
+
+    Routing refers to determining , how an application respond to client request for a specific url and http methods.
+
+    components:
+        url paths
+        http methods
+        handler functions
+
+middleware functions are functions that executes during the lifecycle of request before sending the final response they have access to request response and next.
+
+workflow:
+client request - > middleware - > route handler - > response 
+
+====================================================================================================
+EXPRESS BASICS
+====================================================================================================
+
+1. Difference between package.json and package-lock.json:
+   - package.json: Contains general project information and dependency lists with version ranges (e.g., ^1.0.0). It tracks what the project needs.
+   - package-lock.json: Automatically generated when a package is installed. It locks the exact versions of every dependency and their sub-dependencies to ensure consistency across different environments.
+
+2. Difference between Dev dependencies and dependencies:
+   - Dependencies (--save): Packages required for the application to function in production (e.g., express, mongoose).
+   - Dev Dependencies (--save-dev): Packages only needed during development and testing (e.g., nodemon, jest, eslint). They are not included in the production build.
+
+3. Types of HTTP methods:
+   - GET: Used to retrieve data from the server. (Read)
+   - POST: Used to send data to the server to create a new resource. (Create)
+   - PUT: Used to update or replace an existing resource. (Update)
+   - DELETE: Used to remove a resource from the server. (Delete)
+
+====================================================================================================
+MIDDLEWARE
+====================================================================================================
+
+1. Why we use middleware?
+   - To execute code between the request and response.
+   - To modify request/response objects.
+   - To end the request-response cycle.
+   - To call the next middleware in the stack.
+
+2. What are the types of middleware?
+   - Application-level: Bound to the app object (e.g., app.use()).
+   - Router-level: Bound to express.Router() instance.
+   - Error-handling: Takes 4 arguments (err, req, res, next).
+   - Built-in: Provided by Express (e.g., express.json(), express.static()).
+   - Third-party: Installed via npm (e.g., morgan, cookie-parser).
+
+3. What are the benefits of middleware?
+   - Code Reusability: Write once, use in multiple routes.
+   - Modularity: Keep logic organized and clean.
+   - Centralized Error Handling: Manage all errors in one place.
+
+4. Where is middleware used in company level?
+   - Authentication & Authorization: Checking if a user is logged in (JWT).
+   - Logging: Recording every request for debugging/analytics.
+   - Rate Limiting: Preventing DDoS attacks by limiting requests.
+   - CORS: Managing cross-origin resource sharing.
+
+====================================================================================================
+QUERY PARAMETERS
+====================================================================================================
+
+1. What are query parameters?
+   - They are key-value pairs added to the end of a URL after a question mark (?).
+   - Format: /path?key1=value1&key2=value2
+
+2. Detailed study:
+   - Query parameters are optional and used to sort, filter, or paginate data.
+   - In Express, they are accessed using `req.query`.
+
+3. 3-4 Examples:
+   - Search: /search?q=laptop
+   - Pagination: /products?page=2&limit=10
+   - Filtering: /users?role=admin&status=active
+   - Sorting: /items?sort=price_desc
+
+4. Real-time use:
+   - Google Search: The search term is a query parameter.
+   - E-commerce: Filtering products by price, brand, or size.
+   - Social Media: Fetching posts for a specific hashtag.
+
+====================================================================================================
+TEMPLATE ENGINE & WORKFLOW
+====================================================================================================
+
+1. What are static files?
+   - Assets like CSS, images, and client-side JavaScript that are served directly to the browser without server-side processing.
+
+2. What is Express Router?
+   - A mini-Express app that allows you to group related routes into separate files, making the main server file clean and manageable.
+
+3. Complete Express Workflow:
+   - CLIENT sends Request -> 
+   - SERVER receives it -> 
+   - MIDDLEWARE processes it (Body parsing, Auth) -> 
+   - ROUTER matches the URL path -> 
+   - CONTROLLER/HANDLER executes logic -> 
+   - TEMPLATE ENGINE (EJS) renders HTML (if needed) -> 
+   - SERVER sends Response back to CLIENT.
+

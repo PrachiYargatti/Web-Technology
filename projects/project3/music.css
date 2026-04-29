@@ -1,0 +1,101 @@
+body {
+  margin: 0;
+  font-family: Arial;
+}
+
+.logo {
+  width: 70px;
+  border-radius: 50%;
+}
+
+.music-section {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to right, #8e2de2, #4a00e0);
+  color: white;
+}
+
+.music-title {
+  font-size: 40px;
+}
+
+.music-subtitle {
+  font-size: 20px;
+}
+
+.playlist-section {
+  padding: 60px 0;
+  background: #0c1b29;
+  color: white;
+}
+
+.playlist-title {
+    font-size: 30px;
+    margin-bottom: 30px;
+}
+
+.artist-list {
+  list-style: none;
+  padding: 0;
+}
+
+.artist-card {
+  margin-bottom: 30px;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.artist-card:hover {
+  transform: scale(1.08);
+}
+
+.artist-img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+}
+
+.artist-name {
+  margin-top: 10px;
+}
+
+.songs-section {
+  padding: 40px;
+}
+
+#songsList {
+  list-style: none;
+  padding: 0;
+}
+
+#songsList li {
+  padding: 10px;
+  font-size: 18px;
+}
+
+#searchInput {
+  max-width: 400px;
+  margin: 0 auto 20px auto;
+}
+
+.artist-card {
+  transition: all 0.3s ease;
+}
+
+.artist-card:hover {
+  transform: scale(1.1);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+#songsList li {
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+#songsList li:hover {
+  color: #8e2de2;
+  transform: translateX(5px);
+}

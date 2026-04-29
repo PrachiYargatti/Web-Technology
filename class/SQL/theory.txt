@@ -1,0 +1,71 @@
+used to communicate with relational database (MySQL , PostgreSQL , SQLServer)
+
+ACTIVITY:
+write a query for Create table
+CREATE TABLE STUDENT 
+(
+    PRN PRIMARY KEY
+    ID VARCHAR
+    AGE NUMBER
+)
+INSERT
+
+SELECT
+SELECT * FROM STUDENT
+
+UPDATE
+UPADTE STUDENT SET ID = NEW ID WHERE AGE = 20;
+
+DELETE
+
+
+
+"CONNECTING NODEJS TO SQL DATABASE"
+ we use nodejs backend to connect database:
+
+ npm install mysql2
+
+
+
+---------------
+write a syntax for all methods get , post , put , delete
+
+Express route syntax:
+
+const express = require('express');
+const app = express();
+app.use(express.json());
+
+// GET: read data
+app.get('/items', (req, res) => {
+  res.send('GET request received');
+});
+
+// POST: create new data
+app.post('/items', (req, res) => {
+  const newItem = req.body;
+  res.send(`POST request received: ${JSON.stringify(newItem)}`);
+});
+
+// PUT: update existing data
+app.put('/items/:id', (req, res) => {
+  const id = req.params.id;
+  const updatedData = req.body;
+  res.send(`PUT request received for id ${id}: ${JSON.stringify(updatedData)}`);
+});
+
+// DELETE: remove data
+app.delete('/items/:id', (req, res) => {
+  const id = req.params.id;
+  res.send(`DELETE request received for id ${id}`);
+});
+
+app.listen(3000, () => {
+  console.log('Server running on port 3000');
+});
+
+
+
+-----------
+rebrush sql queries , joins ,store procedures , keys all questions for CONNECTING
+2nd last salary

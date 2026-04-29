@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Music Experience</title>
+
+  <link rel="stylesheet" href="music.css">
+
+  <link
+    rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+  >
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+    <div class="container">
+
+      <a class="navbar-brand" href="#">
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ275eWe-_bK1mzV09760XBfROCYYQ3um2VNw&s"
+          class="logo"
+        >
+      </a>
+
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNav"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <div class="navbar-nav ml-auto">
+          <a class="nav-link active" href="#home">Home</a>
+          <a class="nav-link" href="#playlist">Playlist</a>
+        </div>
+      </div>
+
+    </div>
+  </nav>
+
+  <!-- Home -->
+  <div class="music-section" id="home">
+    <div class="text-center">
+      <h1 class="music-title">Tune into the Best Music Experience</h1>
+      <p class="music-subtitle">Music for Every Moment</p>
+    </div>
+  </div>
+
+  <!-- PLAYLIST -->
+  <div class="playlist-section" id="playlist">
+
+    <h1 class="playlist-title text-center">
+      Playlist of Popular Artists
+    </h1>
+
+    <!-- 🔍 SEARCH -->
+    <div class="text-center">
+      <input
+        type="text"
+        id="searchInput"
+        class="form-control"
+        placeholder="Search artist..."
+      >
+    </div>
+
+    <div class="container mt-4">
+      <ul
+        class="artist-list row text-center"
+        id="artistsContainer"
+      ></ul>
+    </div>
+
+  </div>
+
+  <!-- SONGS -->
+  <div class="songs-section text-center">
+
+    <h2 id="songsTitle"></h2>
+
+    <ul id="songsList"></ul>
+
+  </div>
+
+  <script src="music.js"></script>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
